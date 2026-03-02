@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="hero-video-wrap">
+    <iframe
+      class="hero-video-iframe"
+      src="https://www.youtube.com/embed/9EOGkzDDqjA?autoplay=1&mute=1&controls=0&loop=1&playlist=9EOGkzDDqjA&playsinline=1&rel=0&disablekb=1&fs=0&modestbranding=1"
+      title="Фоновое видео"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+    <div class="hero-video-overlay" aria-hidden="true"></div>
+  </div>
+
+  <section class="wheel-section" aria-label="Колесо фортуны">
+    <div class="wheel-container">
+      <div class="wheel-inner" id="wheelInner">
+        <img src="assets/well2.png" alt="Колесо" class="wheel-disk">
+      </div>
+      <button type="button" class="wheel-spin-btn" id="wheelSpinBtn" aria-label="Крутить">
+        <img src="assets/2-кнопка спин.png" alt="SPIN">
+      </button>
+      <img src="assets/r.png" alt="" class="wheel-frame" aria-hidden="true">
+    </div>
+  </section>
+
+  <div class="registration-modal hidden" id="registration-modal" aria-hidden="true">
+    <div class="registration-modal-backdrop" id="registration-modal-backdrop"></div>
+    <div class="registration-modal-card">
+      <div class="registration-modal-tabs">
+        <button type="button" class="registration-tab registration-tab--active" data-tab="signup">Sign up</button>
+        <button type="button" class="registration-tab" data-tab="login">Log in</button>
+      </div>
+      <div class="registration-modal-bonus">
+        <div class="registration-modal-bonus-icon">🎁</div>
+        <div class="registration-modal-bonus-text">
+          <p class="registration-modal-bonus-title">Welcome pack</p>
+          <p class="registration-modal-bonus-desc">
+            555% up to €5,000 + 99 no-wager FS and 150 FS
+          </p>
+        </div>
+        <span class="registration-modal-bonus-badge">BONUS</span>
+      </div>
+      <div class="registration-modal-error hidden" id="registration-domain-error"></div>
+      <div class="registration-modal-error hidden" id="registration-submit-error"></div>
+      <form class="registration-form" id="registration-form" novalidate>
+        <div class="registration-field">
+          <label class="registration-field-label" for="reg-email">Email</label>
+          <input type="email" id="reg-email" name="email" class="registration-input" placeholder="Enter your email" autocomplete="email" />
+          <span class="registration-field-error" id="reg-email-error"></span>
+        </div>
+        <div class="registration-field">
+          <label class="registration-field-label" for="reg-password">Password</label>
+          <div class="registration-password-wrap">
+            <input type="password" id="reg-password" name="password" class="registration-input" placeholder="Enter password" autocomplete="new-password" />
+            <button type="button" class="registration-password-toggle" id="reg-password-toggle" aria-label="Show password">👁️</button>
+          </div>
+          <span class="registration-field-error" id="reg-password-error"></span>
+        </div>
+        <label class="registration-checkbox">
+          <input type="checkbox" name="newsUpdates" id="reg-news" checked />
+          <span>I want to receive information about news and offers from the casino and selected partners</span>
+        </label>
+        <label class="registration-checkbox">
+          <input type="checkbox" name="termsAccepted" id="reg-terms" required />
+          <span>I am 18 years old and I accept the <a href="#" class="registration-link">Terms of Use</a> and the <a href="#" class="registration-link">Privacy Policy</a></span>
+        </label>
+        <span class="registration-field-error" id="reg-terms-error"></span>
+        <button type="submit" class="registration-submit" id="registration-submit-btn" disabled>
+          Loading domain data...
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+  <script src="dist/registration.bundle.js" defer></script>
+</body>
+</html>
