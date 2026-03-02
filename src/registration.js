@@ -223,10 +223,6 @@ function runRegistration() {
     }
   }
 
-  if (backdrop) {
-    backdrop.addEventListener('click', closeModal)
-  }
-
   if (form) {
     form.addEventListener('submit', handleSubmit)
   }
