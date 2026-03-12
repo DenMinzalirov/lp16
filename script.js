@@ -27,9 +27,10 @@
 
     spinBtn.addEventListener('click', function () {
       spinBtn.disabled = true;
-      wheelInner.style.transition = 'transform 9s ease-out';
+      wheelInner.style.transition = 'transform 4s ease-out';
       var targetAngle = randomChoice(LIGHT_TARGET_ANGLES);
-      var extraSpins = 5 + Math.floor(Math.random() * 4);
+      // Меньше полных оборотов, чтобы анимация казалась плавнее при 4s
+      var extraSpins = 2 + Math.floor(Math.random() * 2); // 2–3 полных оборота
       var delta = (targetAngle - (currentRotation % 360) + 360) % 360;
       var totalRotation = currentRotation + 360 * extraSpins + delta;
 
@@ -41,7 +42,7 @@
       wheelInner.style.transition = 'none';
       spinBtn.disabled = false;
       requestAnimationFrame(function () {
-        wheelInner.style.transition = 'transform 9s ease-out';
+        wheelInner.style.transition = 'transform 4s ease-out';
       });
 
       if (wheelSection) {
